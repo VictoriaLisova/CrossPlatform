@@ -1,0 +1,19 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<ItemGroup>
+	<Solutions Include="Lab1;Lab2"/>
+</ItemGroup>
+
+<Target Name="Build">
+	<MSBuild Projects="$(Solution)\$(Solution).csproj" Targets="Build"/>
+</Target>
+
+<Target Name="Run">
+	<Exec Command="dotnet run --project $(Solution)\$(Solution).csproj"/>
+</Target>
+
+<Target Name="Test">
+	<Exec Command="dotnet test $(Solution)Test\$(Solution)Test.csproj"/>
+</Target>
+
+</Project>
