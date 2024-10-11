@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>Lisova.$(AssemblyName)</PackageId>
+    <Authors>Lisova</Authors>
+    <Product>Lisova $(AssemblyName)</Product>
+    <Description>This is a helper library with classes to solve third lab work</Description>
+    <Copyright>2024</Copyright>
+    <Title>Lab3 Class Library</Title>
+  </PropertyGroup>
+
+</Project>

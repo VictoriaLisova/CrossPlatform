@@ -1,8 +1,12 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
 <ItemGroup>
-	<Solutions Include="Lab1;Lab2"/>
+	<Solutions Include="Lab1;Lab2;Lab3"/>
 </ItemGroup>
+
+<PropertyGroup>
+	<RestoreSources>$(RestoreSources);./ClasslibLab3/bin/Debug</RestoreSources>
+</PropertyGroup>
 
 <Target Name="Build">
 	<MSBuild Projects="$(Solution)\$(Solution).csproj" Targets="Build"/>
