@@ -9,7 +9,7 @@
 </PropertyGroup>
 
 <Target Name="Build">
-	<MSBuild Projects="$(Solution)\$(Solution).csproj" Targets="Build"/>
+	<MSBuild Projects="$(Solution)\$(Solution).csproj" Targets="Restore;Build"/>
 </Target>
 
 <Target Name="Run">
