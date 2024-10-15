@@ -1,11 +1,11 @@
-﻿using ClasslibLab3;
+﻿using Lab3;
 
 internal class Program
 {
     static bool isCorrectTimeFormat(List<Trip> trips)
     {
         int startLength = trips.Count;
-        return trips.Where(t=>t.StartTime >= 0 && t.StartTime <= 10000 && t.EndTime >= 0 && t.EndTime <= 10000).Count() == startLength;
+        return trips.Where(t => t.StartTime >= 0 && t.StartTime <= 10000 && t.EndTime >= 0 && t.EndTime <= 10000).Count() == startLength;
     }
     static void Main(string[] args)
     {
@@ -15,7 +15,7 @@ internal class Program
 
         readFile.Read();
 
-        if(readFile.NumberOfVillages >= 1 && readFile.NumberOfVillages <= 100 
+        if (readFile.NumberOfVillages >= 1 && readFile.NumberOfVillages <= 100
             && readFile.NumberOfBusTrips >= 0 && readFile.NumberOfBusTrips <= 10000 && isCorrectTimeFormat(readFile.Trips))
         {
             var solve = new Solve(readFile.NumberOfVillages);

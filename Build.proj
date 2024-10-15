@@ -4,10 +4,6 @@
 	<Solutions Include="Lab1;Lab2;Lab3"/>
 </ItemGroup>
 
-<PropertyGroup>
-	<RestoreSources>$(RestoreSources);./ClasslibLab3/bin/Debug</RestoreSources>
-</PropertyGroup>
-
 <Target Name="Build">
 	<MSBuild Projects="$(Solution)\$(Solution).csproj" Targets="Restore;Build"/>
 </Target>

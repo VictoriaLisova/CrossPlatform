@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lisova.ClasslibLab3" Version="1.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="input\input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

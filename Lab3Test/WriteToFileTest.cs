@@ -1,9 +1,4 @@
-﻿using ClasslibLab3;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Lab3;
 
 namespace Lab3Test
 {
@@ -27,7 +22,7 @@ namespace Lab3Test
             }
             finally
             {
-                if(File.Exists(tempPath))
+                if (File.Exists(tempPath))
                     File.Delete(tempPath);
             }
         }
