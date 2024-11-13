@@ -1,0 +1,170 @@
+﻿@model Lab5.Models.Lab2Model
+
+<style>
+	form{
+		width: 90vw;
+	}
+
+	.form-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: 30px;
+	}
+
+	.container-one .item {
+		align-items: start;
+	}
+
+	.container-two .item {
+		align-items: end;
+	}
+
+	.container-one, .container-two {
+		margin-bottom: 40px;
+	}
+
+	input {
+		width: 80%;
+		background-color: #e4e9f2;
+		border-radius: 10px;
+		padding: 10px;
+		border: none;
+	}
+
+	label {
+		text-transform: uppercase;
+		margin-bottom: 15px;
+	}
+
+	.buttons {
+		display: flex;
+		align-items: end;
+		justify-content: center;
+		margin-bottom: 30px;
+	}
+
+	button {
+		margin-right: 20px;
+		border: none;
+		color: white;
+		font-weight: bold;
+		padding: 10px;
+		border-radius: 7px;
+	}
+
+	button:first-child{
+		background-color: #659af0;
+	}
+
+	button:nth-child(2) {
+		background-color: #99d1a8;
+	}
+
+	button:first-child:hover {
+		background-color: #60a7e6;
+	}
+
+	button:nth-child(2):hover {
+			background-color: #72cf92;
+	}
+
+	.line {
+		width: 84vw;
+		margin-right: 10px;
+		padding: 0.5px;
+		background-color: lightgray;
+		margin-bottom: 30px;
+	}
+
+	.result-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 30px;
+		width: 93%;
+	}
+
+	.result-item > input{
+		width: 100%;
+	}
+
+	h3 {
+		margin-bottom: 20px;
+	}
+
+	p{
+		margin-bottom: 10px;
+	}
+
+	li {
+		padding: 7px;
+	}
+
+</style>
+
+<form method="post" class="container">
+	<div class="form-container">
+		<div class="container-one">
+			<div class="item">
+				<label for="n">Кількість ганстерів</label>
+				<input id="n" name="n" type="number" value="@Model.N" required />
+			</div>
+			<div class="item">
+				<label for="k">Максимальний ступінь відкритості дверей</label>
+				<input id="k" name="k" type="number" value="@Model.K" required />
+			</div>
+			<div class="item">
+				<label for="t">Час роботи ресторану (одне число)</label>
+				<input id="t" name="t" type="number" value="@Model.T" required />
+			</div>
+		</div>
+		<div class="container-two">
+			<div class="item">
+				<label for="ti">Моменти часу коли приходить кожен з ганстерів</label>
+				<input id="ti" name="ti" type="text" value="@Model.Ti" required />
+			</div>
+			<div class="item">
+				<label for="pi">Багатство кожного з ганстерів</label>
+				<input id="pi" name="pi" type="text" value="@Model.Pi" required />
+			</div>
+			<div class="item">
+				<label for="si">Ступені відкритості дверей для кожного з ганстерів</label>
+				<input id="si" name="si" type="text" value="@Model.Si" required />
+			</div>
+		</div>
+	</div>
+	<div class="buttons">
+		<button type="submit">Отримати результат</button>
+		<button type="submit" asp-action="Reset">Очистити</button>
+	</div>
+</form>
+<div class="line"></div>
+<form>
+	<div class="result-item">
+		<label for="result">Результат</label>
+		<input id="result" name="result" value="@Model.Result" type="number" readonly/>
+	</div>
+</form>
+<div class="rules">
+	<h3>Про програму</h3>
+	<p>
+		Метою даної програми є на основі кількості ганстерів, багатства кожного з них та часу їх приходу зібрати ганстерів таким чином
+		в ресторані, щоб отримати якомога більший прибуток.
+	</p>
+	<ul>
+		<li>Для задачі вказується кількість ганстерів, максимальний ступінь відкритості дверей і ступіеь відкритості дверей для кожного ганстера,
+			інтервал роботи ресторану та час приходу в ресторан кожного з ганстерів, а також багатство кожного з ганстерів
+		</li>
+		<li>На основі цих даних програма проходитиметься по кожній одиниці інтервалу часу, відповідно протягом години будуть різні ступені відкритості дверей.
+			Послідовно переевіряємо значення виручки, якщо закритися на годину, відкритися чи залишитися в тому ж стані.
+		</li>
+		<li>Знаходимо ганстера, якщо такий є для якого характерний і-ий час приходу та j-а ступінь відкритості дверей й додаємо його прибуток.</li>
+	</ul>
+</div>

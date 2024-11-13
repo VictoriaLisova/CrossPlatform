@@ -1,0 +1,11 @@
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/Lab4
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/lab1/input.txt
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/lab2/input.txt
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/lab3/input.txt
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/Lab4.dll
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/Lab4.deps.json
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/Lab4.runtimeconfig.json
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/Lab4.pdb
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/McMaster.Extensions.CommandLineUtils.dll
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/Lab4Classlib.dll
+/home/vagrant/project/Lab4/Lab4/bin/Debug/net6.0/publish/Lab4Classlib.pdb

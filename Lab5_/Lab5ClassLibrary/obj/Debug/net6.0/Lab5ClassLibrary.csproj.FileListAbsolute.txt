@@ -1,0 +1,12 @@
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\bin\Debug\net6.0\Lab5ClassLibrary.deps.json
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\bin\Debug\net6.0\Lab5ClassLibrary.dll
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\bin\Debug\net6.0\Lab5ClassLibrary.pdb
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\Lab5ClassLibrary.csproj.AssemblyReference.cache
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\Lab5ClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\Lab5ClassLibrary.AssemblyInfoInputs.cache
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\Lab5ClassLibrary.AssemblyInfo.cs
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\Lab5ClassLibrary.csproj.CoreCompileInputs.cache
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\Lab5ClassLibrary.dll
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\refint\Lab5ClassLibrary.dll
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\Lab5ClassLibrary.pdb
+E:\DotNetFiles\crossPlatform\Lab5_\Lab5ClassLibrary\obj\Debug\net6.0\ref\Lab5ClassLibrary.dll

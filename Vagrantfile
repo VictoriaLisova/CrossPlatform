@@ -44,4 +44,18 @@ Vagrant.configure("2") do |config|
     mac.vm.synced_folder ".", "/Users/vagrant/project"
     mac.vm.provision "shell", path: "provision-mac.sh"
   end
+
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/trusty64"
+    ubuntu.vm.box_version = "20191107.0.0"
+    ubuntu.vm.network "forwarded_port", guest: 80, host: 8082
+    ubuntu.vm.network "public_network"
+
+    ubuntu.vm.provider "virtualbox" do |vb|
+      vb.name = "Ubuntu-Trusty"
+      vb.memory = "1024"
+    end
+    ubuntu.vm.synced_folder ".", "/home/vagrant/webProject"
+    ubuntu.vm.provision "shell", path: "provision-ubuntu-trusty.sh"
+  end
 end

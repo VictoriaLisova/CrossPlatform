@@ -1,0 +1,106 @@
+﻿@model Lab5.Models.ClientModel
+
+<style>
+	section{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 90vw;
+		height: 80vh;
+	}
+
+	.content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 100px;
+		border-radius: 30px;
+		padding: 0 50px;
+		align-items: center;
+		width: 90%;
+		height: 90%;
+	}
+	.info-container-one, .info-container-two{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-evenly;
+		text-align: start;
+		padding: 0 20px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.info-item{
+		padding: 10px;
+		text-transform: uppercase;
+	}
+
+	.main-text{
+		text-align: center;
+		text-transform: uppercase;
+		margin-top: 10px;
+		letter-spacing: 2px;
+	}
+
+	.container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	input{
+		border-radius: 20px;
+		border: none;
+		background-color: #cedaeb;
+		width: 90%;
+	}
+
+	.container invisible{
+		opacity: 0;
+	}
+
+	label{
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		margin-bottom: 10px; 
+	}
+
+</style>
+
+<main>
+	<section>
+		<h1 class="main-text">Профіль</h1>
+		<div class="content">
+			<div class="info-container-one">
+				<div class="container">
+					<label for="fullName">ПІП</label>
+					<input class="info-item" id="fullName" name="fullName" type="text" value="@Model.FullName" readonly />
+				</div>
+				<div class="container">
+					<label for="userName">Ім'я Користувача</label>
+					<input type="text" id="userName" name="userName" class="info-item" value="@Model.UserName" readonly />
+				</div>
+				<div class="container">
+					<label for="password">Пароль</label>
+					<input type="password" id="password" name="password" class="info-item" value="@Model.Password" readonly />
+				</div>
+			</div>
+			<div class="info-container-two">
+				<div class="container">
+					<label for="phone">Номер телефону</label>
+					<input type="tel" class="info-item" id="phone" name="phone" value="@Model.Phone" readonly />
+				</div>
+				<div class="container">
+					<label for="email">Пошта</label>
+					<input id="email" name="email" class="info-item" type="email" value="@Model.Email" readonly />
+				</div>
+				<div class="container invisible">
+					<label>Invisible</label>
+					<input class="info-item" />
+				</div>
+			</div>
+		</div>
+	</section>
+</main>

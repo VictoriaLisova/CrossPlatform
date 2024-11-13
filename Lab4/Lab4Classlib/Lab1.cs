@@ -14,8 +14,6 @@ namespace Lab4Classlib
         {
             try
             {
-                //string projectDirectory = AppContext.BaseDirectory;
-                //string read_path = Path.Combine(projectDirectory, "input", "input_1.txt");
                 var read_file = new Lab1Classes.ReadFile(PathToInputFile);
                 read_file.Read();
 

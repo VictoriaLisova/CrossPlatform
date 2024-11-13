@@ -1,0 +1,11 @@
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.exe
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\lab1\input.txt
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\lab2\input.txt
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\lab3\input.txt
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.dll
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.deps.json
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.runtimeconfig.json
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.pdb
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\McMaster.Extensions.CommandLineUtils.dll
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4Classlib.dll
+C:\project\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4Classlib.pdb

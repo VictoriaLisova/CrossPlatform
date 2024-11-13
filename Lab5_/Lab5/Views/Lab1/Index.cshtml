@@ -1,0 +1,139 @@
+﻿@model Lab5.Models.Lab1Model
+
+<style>
+	.form-input, .form-output {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 80vw;
+		margin-top: 20px;
+	}
+
+	input{
+		width: 100%;
+		border-radius: 10px;
+		padding: 10px;
+		background-color: #e4e9f2;
+		border: none;
+	}
+
+	label {
+		margin-bottom: 20px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	button{
+		border-radius: 5px;
+		padding: 10px 7px;
+		border: none;
+		color: white;
+		font-weight: bold;
+		margin-right: 20px;
+	}
+
+	button:first-child{
+		background-color: #659af0;
+	}
+
+	button:first-child:hover{
+		background-color: #60a7e6;
+	}
+
+	button:nth-child(2) {
+		background-color: #99d1a8;
+	}
+
+	button:nth-child(2):hover{
+		background-color: #72cf92;
+	}
+
+	.line{
+		width: 80vw;
+		padding: 0.5px;
+		background-color: lightgray;
+		margin-top: 30px;
+		margin-left: 5px;
+	}
+
+	.buttons {
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		margin-top: 30px;
+		margin-left: 75%;
+	}
+
+	.input-one, .input-two {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin-top: 50px;
+		column-gap: 30px;
+		width: 100%;
+	}
+
+	h3 {
+		margin-top: 20px;
+	}
+
+	p {
+		margin: 20px 0px;
+	}
+
+	li {
+		padding: 5px;
+	}
+
+	.bold {
+		font-weight: bold;
+	}
+
+</style>
+
+<form method="post" class="form-input">
+	<div class="input-one">
+		<div class="container">
+			<label for="input">Кількість слів у матриці</label>
+			<input id="words_num" name="words_num" type="number" value="@Model.Input_N" required />
+		</div>
+		<div class="container">
+			<label for="words_search_num">Кількість слів для пошуку</label>
+			<input id="words_search_num" name="words_search_num" type="number" value="@Model.Input_M" required />
+		</div>
+	</div>
+	<div class="input-two">
+		<div class="container">
+			<label for="maze_words">Слова в матриці</label>
+			<input id="maze_words" name="maze_words" type="text" value="@Model.Maze_Words" required />
+		</div>
+		<div class="container">
+			<label for="search_words">Слова для пошуку</label>
+			<input id="search_words" name="search_words" type="text" value="@Model.Search_words" required />
+		</div>
+	</div>
+	<div class="buttons">
+		<button type="submit">Отримати відповідь</button>
+		<button type="submit" asp-action="Reset">Очистити</button>
+	</div>
+</form>
+<div class="line"></div>
+<form class="form-output">
+	<label for="result">Результат</label>
+	<input id="result" name="result" type="text" value="@Model.Output" readonly>
+</form>
+<div class="rules">
+	<h3>Про програму</h3>
+	<p>
+		Програма передбачає створення матриці слів, <span class="bold">важливо, щоб всі слова були однакового розміру</span>
+		та вибору деякої кількості слів, які містяться в таблиці, тобто ті, які потрібно шукти. 
+		Принцип роботи такий:
+	</p>
+	<ul>
+		<li>Вибираємо слово та беремо з нього пуршу літеру</li>
+		<li>Зноходимо її в таблиці і викреслюємо</li>
+		<li>Беремо наступну літеру і дивимося на сусідів викресленої літери й знаходимо потрібну літеру</li>
+		<li>Таким чином перебираємо всі слова</li>
+		<li>З літер, що залишилися формуємо результат, в тому порядку, в якому вони знаходяться в таблиці</li>
+	</ul>
+</div>

@@ -1,0 +1,11 @@
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.exe
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\lab1\input.txt
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\lab2\input.txt
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\lab3\input.txt
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.dll
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.deps.json
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.runtimeconfig.json
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4.pdb
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\McMaster.Extensions.CommandLineUtils.dll
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4Classlib.dll
+E:\DotNetFiles\crossPlatform\Lab4\Lab4\bin\Debug\net6.0\publish\Lab4Classlib.pdb

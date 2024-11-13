@@ -1,0 +1,168 @@
+﻿@model Lab5.Models.Lab3Model
+
+<style>
+	form{
+		width: 80vw;
+		margin-top: 40px;
+		margin-left: 20px;
+	}
+
+	.form-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: 50px;
+	}
+
+	.item, .trips {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		margin-bottom: 30px;
+	}
+
+	input {
+		border: none;
+		border-radius: 10px;
+		background-color: #e4e9f2;
+		padding: 10px;
+		width: 95%;
+	}
+
+	label {
+		text-transform: uppercase;
+		margin-bottom: 15px; 
+	}
+
+	button {
+		padding: 8px 20px;
+		border: none;
+		border-radius: 5px;
+		color: white;
+		font-weight: bold;
+	}
+
+	.clear-btn {
+		background-color: #99d1a8;
+		margin-left: 20px;
+	}
+
+	.clear-btn:hover{
+		background-color: #72cf92;
+	}
+
+	.get-res {
+		background-color: #659af0;
+	}
+
+	.get-res:hover {
+		background-color: #60a7e6;
+	}
+
+	.result{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.line {
+		padding: 0.5px;
+		background-color: lightgray;
+		width: 95%;
+		margin-top: 30px;
+	}
+	.buttons {
+		display: flex;
+		flex-direction: row;
+		align-otems: center;
+		justify-content: end;
+		margin-right: 30px;
+	}
+
+	.result > input {
+		width: 100%;
+		margin-right: 20px;
+	}
+
+	.about {
+		margin-top: 30px;
+		margin-left: 10px;
+	}
+
+	h3 {
+		margin-bottom: 15px;
+	}
+
+	.about > p {
+		max-width: 95%;
+	}
+
+	li {
+		padding: 7px;
+		max-width: 95%;
+	}
+
+	.trips > input {
+		width: 98%;
+	}
+
+</style>
+
+<form method="post">
+	<div class="form-container">
+		<div class="container-one">
+			<div class="item">
+				<label for="n">Кількість сіл</label>
+				<input id="n" name="n" type="number" value="@Model.N" required/>
+			</div>
+			<div class="item">
+				<label for="d">Номер початкового села</label>
+				<input id="d" name="d" type="number" value="@Model.D" required/>
+			</div>
+		</div>
+		<div class="container-two">
+			<div class="item">
+				<label for="v">Номер села, в яке потрібно дібратися</label>
+				<input id="v" name="v" type="number" value="@Model.V" required/>
+			</div>
+			<div class="item">
+				<label for="r">Кількість автобусних рейсів</label>
+				<input id="r" name="r" type="number" value="@Model.R" required/>
+			</div>
+		</div>
+	</div>
+	<div class="trips">
+		<label for"trip">Рейси</label>
+		<input id="trip" name="trip" type="text" value="@Model.Trips" requred/>
+	</div>
+	<div class="buttons">
+		<button type="submit" class="get-res">Отримати результат</button>
+		<button type="submit" asp-action="Reset" class="clear-btn">Очистити</button>
+	</div>
+</form>
+<div class="line"></div>
+<form>
+	<div class="result">
+		<label for="result">Результат</label>
+		<input id="result" name="result" type="number" value="@Model.Result" readonly/>
+	</div>
+</form>
+<div class="about">
+	<h3>Про програму</h3>
+	<p>
+		Дана програма розв'язує задачу знаходження мінімального часу за який можна дібратися з села а в себо b. Для задачі потрібно вказати
+		кількість сіл, номер села з якого виїжджає посариж та номер села, в яке потрібно прибути. Також вказується кількість рейсів, для кожного
+		рейсу потрібно задати село з якого виїжджає автобус та час і село куди їде та коли туди прибуде.
+	</p>
+	<ul>
+		<li>
+			Програма розв'язує задачу використовуючи алгоритм Дейсктри для знаходження найкоротшої відстані.
+			Де вершинами вмступають номери сіл, а ваги ребер - час пересування між селами.
+		</li>
+		<li>
+			Оскільки пасажир з одного автобуса може відразу пересісти на інший не чекаючи, для того щоб отримати результат, 
+			досить знайти шлях з найменшою вартістю, тобто часом.
+		</li>
+	</ul>
+</div>

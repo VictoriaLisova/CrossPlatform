@@ -14,7 +14,9 @@ public class Program
         app.Description = "This is an application for lab 4";
         app.HelpOption("-h|--help");
 
-        var rootDir = new DirectoryInfo(Directory.GetCurrentDirectory()).Parent?.Parent;
+        //var rootDir = new DirectoryInfo(Directory.GetCurrentDirectory()).Parent?.Parent;
+       // Console.WriteLine(new DirectoryInfo(AppContext.BaseDirectory).Parent?.Parent?.Parent?.Parent?.Parent);
+        var rootDir = new DirectoryInfo(AppContext.BaseDirectory).Parent?.Parent?.Parent?.Parent?.Parent;
 
         var pathInputFileLab1 = CreatePath(Path.Combine(rootDir.FullName, "Lab1", "bin", "Debug", "net6.0", "input"), "input_1.txt");
         var pathInputFileLab2 = CreatePath(Path.Combine(rootDir.FullName, "Lab2", "bin", "Debug", "net6.0", "input"), "input_1.txt");
