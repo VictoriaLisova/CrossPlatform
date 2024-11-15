@@ -46,13 +46,15 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "ubuntu/trusty64"
-    ubuntu.vm.box_version = "20191107.0.0"
-    ubuntu.vm.network "forwarded_port", guest: 80, host: 8082
-    ubuntu.vm.network "public_network"
+    ubuntu.vm.box = "ubuntu/jammy64"
+    ubuntu.vm.box_version = "20241002.0.0"
+    ubuntu.vm.network "forwarded_port", guest: 5043, host: 5043
+    ubuntu.vm.network "forwarded_port", guest: 5044, host: 5044
+    ubuntu.vm.network "forwarded_port", guest: 5045, host: 5045
+    ubuntu.vm.network "public_network", type: "dhcp"
 
     ubuntu.vm.provider "virtualbox" do |vb|
-      vb.name = "Ubuntu-Trusty"
+      vb.name = "Ubuntu"
       vb.memory = "1024"
     end
     ubuntu.vm.synced_folder ".", "/home/vagrant/webProject"
