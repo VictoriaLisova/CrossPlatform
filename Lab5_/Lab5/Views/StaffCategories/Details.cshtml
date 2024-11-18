@@ -1,0 +1,41 @@
+﻿@model Lab5.Models.APILab6Models.StaffCategories
+
+<style>
+	.category-container{
+		margin: 50px;
+	}
+
+	h1{
+		text-transform: uppercase;
+		padding: 10px 0;
+		margin-bottom: 10px;
+	}
+
+	span{
+		font-weight: bold;
+	}
+
+	p{
+		padding: 5px;
+	}
+
+	button{
+		border: none;
+		border-radius: 5px;
+		background-color: #489959;
+		padding: 5px 20px;
+		color: white;
+		margin-top: 20px;
+		margin-left: 23vw;
+	}
+
+	button:hover{
+			background-color: #23994e;
+	}
+</style>
+<form class="category-container" method="post">
+	<h1>Category info</h1>
+	<p><span>Staff category code: </span>@Model.StaffCategoryCode</p>
+	<p><span>Staff category description: </span>@Model.StaffCategoryDescription</p>
+	<button type="submit" asp-action="Back">Back</button>
+</form>

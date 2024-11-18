@@ -1,0 +1,61 @@
+﻿@model Lab5.Models.APILab6Models.StaffPatientAssociations
+
+<style>
+	p{
+		padding: 10px;
+		letter-spacing: 1.2px;
+	}
+
+	span{
+		font-weight: bold;
+	}
+
+	h1{
+		text-align: center;
+		text-transform: uppercase;
+		padding: 30px;
+	}
+
+	button{
+		border: none;
+		padding: 8px 30px;
+		border-radius: 5px;
+		background-color: #489959;
+		color: white;
+		margin-left: 80vw;
+	}
+
+	button:hover {
+		background-color: #23994e;
+	}
+</style>
+<form class="association-container" method="post">
+	<h1>Assosiation Info</h1>
+	<p><span>Association id: </span>@Model.AssociationId</p>
+	<p><span>Patient id: </span>@Model.Patient.PattientId</p>
+	<p><span>Comanaged yn: </span>@Model.Patient.CommanagedYn</p>
+	<p><span>Nhs number: </span>@Model.Patient.NhsNumber</p>
+	<p><span>Gender: </span>@Model.Patient.Gender</p>
+	<p><span>Date of Birth: </span>@Model.Patient.DateOfBirth</p>
+	<p><span>Patient name: </span>@Model.Patient.PatientName</p>
+	<p><span>Patient address: </span>@Model.Patient.PatientAddress</p>
+	<p><span>Height: </span>@Model.Patient.Height</p>
+	<p><span>Weight: </span>@Model.Patient.Weight</p>
+	<p><span>Details: </span>@Model.Patient.Details</p>
+	<p><span>Stuff id: </span>@Model.Staff.StaffId</p>
+	<p><span>Stuff category code: </span>@Model.Staff.StaffCategoryCode</p>
+	<p><span>Staff category description: </span>@Model.Staff.StaffCategory.StaffCategoryDescription</p>
+	<p><span>Role code: </span>@Model.Staff.RoleCode</p>
+	<p><span>Role description: </span>@Model.Staff.Role.RoleDescription</p>
+	<p><span>Gender: </span>@Model.Staff.Gender</p>
+	<p><span>Stuff first name: </span>@Model.Staff.StaffFirstName</p>
+	<p><span>Stuff middle name: </span>@Model.Staff.StaffMiddleName</p>
+	<p><span>Stuff last name: </span>@Model.Staff.StaffLastName</p>
+	<p><span>Stuff qualification: </span>@Model.Staff.StaffQualifications</p>
+	<p><span>Stuff birth date: </span>@Model.Staff.StaffBirthDate</p>
+	<p><span>Stuff details: </span>@Model.Staff.StaffDetails</p>
+	<p><span>Association start date: </span>@Model.AssociationStartDate</p>
+	<p><span>Association end date: </span>@Model.AssociationEndDate</p>
+	<p><span>Association details: </span>@Model.AssociationDetails</p>
+	<button type="submit" asp-action="Back">Back</button>
+</form>

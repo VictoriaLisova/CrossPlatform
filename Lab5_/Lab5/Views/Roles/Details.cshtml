@@ -1,0 +1,44 @@
+﻿@model Lab5.Models.APILab6Models.Roles
+
+<style>
+	.role-container{
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
+		margin: 50px;
+	}
+
+	h1{
+		padding: 20px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	p{
+		padding: 20px;
+	}
+
+	span{
+		font-weight: bold;
+	}
+
+	button{
+		border: none;
+		padding: 8px 30px;
+		border-radius: 5px;
+		background-color: #489959;
+		color: white;
+		margin-left: 19vw;
+	}
+
+	button:hover {
+		background-color: #23994e;
+	}
+</style>
+<form class="role-container" method="post">
+	<h1>Role info</h1>
+	<p><span>Role code: </span>@Model.RoleCode</p>
+	<p><span>Role description: </span>@Model.RoleDescription</p>
+	<button type="submit" asp-action="Back">Back</button>
+</form>

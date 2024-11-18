@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Lab5.Models.APILab6Models.StaffPatientAssociations>
+
+<style>
+	.associations-container{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100vw;
+	}
+
+	.association-item{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 30px 0;
+		margin: 20px 100px;
+		background-color: #e9eff5;
+		border-radius: 30px;
+	}
+
+	.block{
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: space-evenly;
+	}
+
+	label, aside content {
+		padding: 10px;
+		text-transform: uppercase;
+		letter-spacing: 1.1px;
+		font-weight: bold;
+	}
+
+	input {
+		width: 30vw;
+		padding: 5px 20px;
+		border: none;
+		background-color: #d8dee3;
+		border-radius: 5px;
+	}
+
+	aside{
+		padding: 10px;
+		text-align: start;
+	}
+
+	.details-btn{
+		border: none;
+		margin-left: 22vw;
+		padding: 10px 30px;
+		background-color: #accae3;
+		color: white;
+		font-weight: bold;
+		border-radius: 10px;
+		margin-top: 30px;
+	}
+
+	.details-btn:hover {
+			background-color: #92bcde;
+	}
+
+	li {
+		padding: 3px;
+	}
+</style>
+<div class="assosiations-container">
+	@foreach (var item in Model)
+	{
+		<form class="association-item" method="post">
+			<div class="block">
+				<label for="assosiation_start_date">Assosiation Start Date</label>
+				<input id="assosiation_start_date" name="assosiation_start_date" type="text" value="@item.AssociationStartDate" readonly />
+			</div>
+			<div class="block">
+				<label for="association_end_date">Association End Date</label>
+				<input id="association_end_date" name="association_end_date" type="text" value="@item.AssociationEndDate" readonly />
+			</div>
+			<div class="block">
+				<label for="association_details">Association Details</label>
+				<input id="association_details" name="association_details" type="text" value="@item.AssociationDetails" readonly />
+			</div>
+			<div class="block">
+				<aside>
+					<content>Patient</content>
+					<details>
+						<ul>
+							<li>Comanage yn: @item.Patient.CommanagedYn</li>
+							<li>Nhs number: @item.Patient.NhsNumber</li>
+							<li>Gender: @item.Patient.Gender</li>
+							<li>Date of birth: @item.Patient.DateOfBirth</li>
+							<li>Patient name: @item.Patient.PatientName</li>
+							<li>Patient address: @item.Patient.PatientAddress</li>
+							<li>Height: @item.Patient.Height</li>
+							<li>Weight: @item.Patient.Weight</li>
+							<li>Details: @item.Patient.Details</li>
+						</ul>
+					</details>
+				</aside>
+			</div>
+			<div class="block">
+				<aside>
+					<content>Staff</content>
+					<details>
+						<ul>
+							<li>Gender: @item.Staff.Gender</li>
+							<li>First name: @item.Staff.StaffFirstName</li>
+							<li>Middle name: @item.Staff.StaffMiddleName</li>
+							<li>Last name: @item.Staff.StaffLastName</li>
+							<li>Qualification: @item.Staff.StaffQualifications</li>
+							<li>Birth date: @item.Staff.StaffBirthDate</li>
+							<li>Details: @item.Staff.StaffDetails</li>
+						</ul>
+					</details>
+				</aside>
+			</div>
+			<button class="details-btn" type="submit" asp-action="Details" asp-route-id="@item.AssociationId">Details</button>
+		</form>
+	}
+</div>

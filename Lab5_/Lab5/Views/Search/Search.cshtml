@@ -1,0 +1,187 @@
+﻿
+<style>
+	.search-container{
+		margin: 50px auto;
+		width: 70vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.dropdown{
+		width: 200px;
+		height: 40px;
+		border: none;
+		background-color: #bbf2c4;
+		border-top-left-radius: 3px;
+		border-bottom-left-radius: 3px;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	.generalInput {
+		width: 30vw;
+		height: 40px;
+		border: 1px solid #bbf2c4;
+		padding-left: 10px;
+	}
+
+	button{
+		border: none;
+		width: 13vw;
+		height: 40px;
+		background-color: #98d9d1;
+		border-top-right-radius: 3px;
+		border-bottom-right-radius: 3px;
+		text-align: center;
+	}
+
+	button:hover{
+		background-color: #7cd9ce;
+	}
+
+	select:hover{
+		background-color: #a4dbbb;
+	}
+
+	.dateTime-container{
+		display: none;
+	}
+
+	.dateTime-container input{
+		height: 40px;
+		border: 1px solid #bbf2c4;
+		width: 7vw;
+	}
+
+	.appointments-container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 20px auto;
+	}
+
+	.item{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 10px;
+	}
+</style>
+<form class="search-container" method="post">
+	<select class="dropdown" id="searchType">
+		<option id="substring" class="option" value="substring">Substring</option>
+		<option id="datetime" class="option" value="dateTime">Datetime</option>
+		<option id="list" class="option" value="list">List of id</option>
+	</select>
+	<input class="generalInput" type="text" name="searchText" id="searchText" placeholder="Search"/>
+	<div id="searchDatetime" class="dateTime-container">
+		<label for="dateStart">From: </label>
+		<input class="dateTimeInput" id="dateStart" type="date" />
+		<input class="dateTimeInput" id="timeStart" type="time" />
+		<label for="dateEnd">To: </label>
+		<input class="dateTimeInput" id="dateEnd" type="date" />
+		<input class="dateTimeInput" id="timeEnd" type="time" />
+	</div>
+	<button id="search-btn" type="submit">Search</button>
+</form>
+@if (ViewBag.Appointments != null && ViewBag.Appointments.Count > 0)
+{
+	<div class="appointments-container">
+		@foreach (var item in ViewBag.Appointments)
+		{
+			<div class="item">
+				<p>@item.AppointmentId</p>
+				<p>@item.AppointmentStartDatetime</p>
+				<p>@item.AppointmentEndDatetime</p>
+				<p>@item.AppointmentDetails</p>
+			</div>
+		}
+	</div>
+}
+else if (ViewBag.Patients != null && ViewBag.Patients.Count > 0)
+{
+	<div class="appointments-container">
+		@foreach (var item in ViewBag.Patients)
+		{
+			<div class="item">
+				<p>@item.PattientId</p>
+				<p>@item.CommanagedYn</p>
+				<p>@item.NhsNumber</p>
+				<p>@item.Gender</p>
+				<p>@item.DateOfBirth</p>
+				<p>@item.PatientName</p>
+				<p>@item.PatientAddress</p>
+				<p>@item.Height</p>
+				<p>@item.Weight</p>
+				<p>@item.Details</p>
+			</div>
+		}
+	</div>
+}
+else if(ViewBag.Staff != null && ViewBag.Staff.Count > 0)
+{
+	<div class="appointments-container">
+		@foreach (var item in ViewBag.Staff)
+		{
+			<div class="item">
+				<p>@item.StaffId</p>
+				<p>@item.Gender</p>
+				<p>@item.StaffFirstName</p>
+				<p>@item.StaffMiddleName</p>
+				<p>@item.StaffLastName</p>
+				<p>@item.StaffBirthDate</p>
+				<p>@item.StaffDetails</p>
+				<p>@item.StaffQualifications</p>
+				@foreach (var patient in @item.PatientRecords)
+				{
+					<p>@patient</p>
+				}
+			</div>
+		}
+	</div>
+}
+
+<script>
+	const searchType = document.getElementById("searchType");
+	const searchbar = document.getElementById("searchText");
+	const searchbarDateTime = document.getElementById("searchDatetime");
+	const searchBtn = document.getElementById("search-btn");
+
+	const dateStart = document.getElementById("dateStart");
+	const timeStart = document.getElementById("timeStart");
+	const dateEnd = document.getElementById("dateEnd");
+	const timeEnd = document.getElementById("timeEnd");
+
+	searchType.addEventListener("change", event => {
+		var selected = event.target.value;
+
+		if (selected == "dateTime"){
+			searchbar.style.display = "none";
+			searchbarDateTime.style.display = "block";
+		}
+		else{
+			searchbar.style.display = "block";
+			searchbarDateTime.style.display = "none";
+		}
+	});
+
+	searchBtn.addEventListener("click", event => {
+		event.preventDefault();
+		if(searchType.value == "dateTime"){
+			const url = `/Search/SearchByDateTime?startDate=${dateStart.value}&startTime=${timeStart.value}&endDate=${dateEnd.value}&endTime=${timeEnd.value}`
+			window.location.href = url;
+		}
+		else if (searchType.value == "substring") {
+			const url = `/Search/SearchBySubstring?substring=${searchbar.value}`
+			window.location.href = url;
+		}
+		else if (searchType.value == "list"){
+			const url = `/Search/SearchById?idLine=${searchbar.value}`
+			window.location.href = url;
+		}
+	});
+</script>

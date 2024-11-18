@@ -12,22 +12,27 @@ if (provider == "psql")
     builder.Services.AddDbContext<PostgreSqlDbContext>(options =>
         options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection"))
     );
+    builder.Services.AddScoped<IAPIDbContext, PostgreSqlDbContext>();
 }
 else if (provider == "mssql")
 {
     builder.Services.AddDbContext<APIDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("MSSqlConnection"))
     );
+    builder.Services.AddScoped<IAPIDbContext, APIDbContext>();
 }
 else if (provider == "sqlite")
 {
     builder.Services.AddDbContext<SqliteDbContext>(options =>
         options.UseSqlite(builder.Configuration.GetConnectionString("SqlLiteConnection"))
     );
+    builder.Services.AddScoped<IAPIDbContext, SqliteDbContext>();
 }
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
+builder.Services.AddMvc();
 
 var app = builder.Build();
 
@@ -104,10 +109,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.MapControllers();
 
 app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthentication();
+//app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

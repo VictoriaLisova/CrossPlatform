@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Lab5.Models.APILab6Models.StaffCategories>
+
+<style>
+	.categories-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 50px;
+	}
+
+	.category{
+		padding: 80px 200px;
+		margin: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: #e6eff7;
+		border-radius: 10px;
+	}
+
+	label{
+		font-weight: bold;
+		letter-spacing: 1.2px;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+	}
+
+	input{
+		border: none;
+		padding: 5px;
+		border-radius: 5px;
+		width: 20vw;
+		margin-bottom: 10px;
+	}
+
+	button{
+		border: none;
+		padding: 5px 20px;
+		background-color: #51a6f5;
+		border-radius: 8px;
+		color: white;
+		margin-left: 14vw;
+		margin-top: 10px;
+	}
+
+	button:hover{
+			background-color: #5191e0;
+	}
+</style>
+<form class="categories-container" method="post">
+	@foreach(var category in @Model)
+	{
+		<div class="category">
+			<label for="description">Staff category description</label>
+			<input id="description" name="description" type="text" value="@category.StaffCategoryDescription" readonly />
+			<button type="submit" asp-action="Details" asp-route-id="@category.StaffCategoryCode">Details</button>
+		</div>
+	}
+</form>
