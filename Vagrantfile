@@ -46,11 +46,12 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "ubuntu/jammy64"
-    ubuntu.vm.box_version = "20241002.0.0"
+    ubuntu.vm.box = "ubuntu/focal64"
+    ubuntu.vm.box_version = "20240821.0.1"
     ubuntu.vm.network "forwarded_port", guest: 5043, host: 5043
     ubuntu.vm.network "forwarded_port", guest: 5044, host: 5044
     ubuntu.vm.network "forwarded_port", guest: 5045, host: 5045
+    ubuntu.vm.network "forwarded_port", guest: 7277, host: 7277
     ubuntu.vm.network "public_network", type: "dhcp"
 
     ubuntu.vm.provider "virtualbox" do |vb|
