@@ -1,5 +1,6 @@
 ﻿using Lab6API.Data;
 using Lab6API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Lab6API.Controllers
 {
     [ApiController]
+    [Authorize(Policy = "ApiScope")]
     public class SearchController : ControllerBase
     {
         private readonly IAPIDbContext _context;
@@ -22,6 +24,23 @@ namespace Lab6API.Controllers
             // get appointments where start time is between two measures
             var appointments = await _context.Appointments.Where(a=>a.AppointmentStartDatetime >= start 
                                                             && a.AppointmentEndDatetime <= end).ToListAsync();
+
+            if (appointments != null && appointments.Count > 0)
+            {
+                // change GMT for Ukraine time
+                var timeZone = TimeZoneInfo.FindSystemTimeZoneById("FLE Standard Time");
+                foreach(var appointment in appointments)
+                {
+                    var localStart = appointment.AppointmentStartDatetime;
+                    var localEnd = appointment.AppointmentEndDatetime;
+                    var timeZoneStart = TimeZoneInfo.ConvertTime(localStart, timeZone);
+                    var timeZoneEnd = TimeZoneInfo.ConvertTime(localEnd, timeZone);
+
+                    appointment.AppointmentStartDatetime = timeZoneStart;
+                    appointment.AppointmentEndDatetime = timeZoneEnd;
+                }
+            }
+
             return appointments.Any() ? Ok(appointments) : BadRequest("don`t have any appointments");
         }
 

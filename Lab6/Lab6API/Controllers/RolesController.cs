@@ -1,10 +1,12 @@
 ﻿using Lab6API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab6API.Controllers
 {
     [ApiController]
+    [Authorize(Policy="ApiScope")]
     public class RolesController : ControllerBase
     {
         private readonly IAPIDbContext _context;

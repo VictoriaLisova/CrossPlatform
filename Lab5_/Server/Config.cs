@@ -21,8 +21,7 @@ namespace Server
             {
                 new ApiScope("Lab5API.read"),
                 new ApiScope("Lab5API.write"),
-                new ApiScope("Lab6API.read"),
-                new ApiScope("Lab6API.write")
+                new ApiScope("Lab6API"),
             };
 
         public static IEnumerable<ApiResource> ApiResources =>
@@ -36,7 +35,7 @@ namespace Server
                 },
                 new ApiResource("Lab6API")
                 {
-                    Scopes = new List<string> { "Lab6API.read", "Lab6API.write" },
+                    Scopes = new List<string> { "Lab6API" },
                     ApiSecrets = new List<Secret> { new Secret("Client2_Secret".Sha256()) },
                     UserClaims = new List<string> { "role" }
                 }
@@ -50,10 +49,10 @@ namespace Server
                     ClientId = "password_client",
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     ClientSecrets = { new Secret("Client1_Secret".Sha256()) },
-                    AllowedScopes = { "openid", "profile", "Lab5", "Lab5API.read", "Lab5API.write", "Lab6API.read", "Lab6API.write" },
+                    AllowedScopes = { "openid", "profile", "Lab5", "Lab5API.read", "Lab5API.write" },
                     //AllowOfflineAccess = true
                 },
-                new Client()
+                new Client
                 {
                     ClientId = "interactive",
                     ClientSecrets = { new Secret("Client1_Secret".Sha256()) },
@@ -62,10 +61,17 @@ namespace Server
                     FrontChannelLogoutUri = "https://localhost:5443/signout-oidc",
                     PostLogoutRedirectUris = { "https://localhost:5443/signout-callback-oidc" },
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "Lab5API.read", "Lab5API.write", "Lab6API.read", "Lab6API.write" },
+                    AllowedScopes = { "openid", "profile", "Lab5API.read", "Lab5API.write"},
                     RequirePkce = false,
                     RequireConsent = true,
                     AllowPlainTextPkce = false
+                },
+                new Client
+                {
+                    ClientId = "mashine_to_mashine_client",
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    ClientSecrets = { new Secret("Client2_Secret".Sha256()) },
+                    AllowedScopes = { "Lab6API" }
                 }
             };
     }   

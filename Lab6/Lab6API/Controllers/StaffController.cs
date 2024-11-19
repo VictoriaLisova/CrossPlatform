@@ -1,5 +1,6 @@
 ﻿using Lab6API.Data;
 using Lab6API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Lab6API.Controllers
 {
     [ApiController]
+    [Authorize(Policy = "ApiScope")]
     public class StaffController : ControllerBase
     {
         private readonly IAPIDbContext _context;

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Lab6API.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Lab6API.Controllers;
 
